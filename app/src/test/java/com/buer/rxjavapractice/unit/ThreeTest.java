@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by YanMingDao on 22/11/2016.
@@ -25,6 +24,6 @@ public class ThreeTest {
         artist.setFrom("China");
         arrArtist.add(artist);
         int count = three.getLondonArtistCount(arrArtist);
-        Assert.assertEquals(2, count);
+        Assert.assertEquals(1, count);
     }
 }
