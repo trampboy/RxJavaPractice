@@ -1,6 +1,7 @@
 package com.buer.rxjavapractice.unit;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import rx.Observable;
 import rx.functions.Func1;
@@ -19,5 +20,15 @@ public class Three {
                         return "London".equals(artist.isFrom());
                     }
                 }).count().toBlocking().first();
+    }
+
+    public String[] toUpperCase(String[] actual) {
+        List<String> list = Observable.from(actual).map(new Func1<String, String>() {
+            @Override
+            public String call(String s) {
+                return s.toUpperCase();
+            }
+        }).toList().toBlocking().first();
+        return list.toArray(new String[list.size()]);
     }
 }

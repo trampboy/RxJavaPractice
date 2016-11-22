@@ -26,4 +26,11 @@ public class ThreeTest {
         int count = three.getLondonArtistCount(arrArtist);
         Assert.assertEquals(1, count);
     }
+
+    @Test
+    public void toUpperCaseTest() throws Exception {
+        String[] actual = {"a", "b", "c"};
+        String[] expected = {"A", "B", "C"};
+        Assert.assertArrayEquals(expected, three.toUpperCase(actual));
+    }
 }
