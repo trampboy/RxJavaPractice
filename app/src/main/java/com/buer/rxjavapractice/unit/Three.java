@@ -6,6 +6,8 @@ import java.util.List;
 import rx.Observable;
 import rx.functions.Func1;
 
+import static java.lang.Character.isDigit;
+
 /**
  * Created by YanMingDao on 22/11/2016.
  */
@@ -30,5 +32,14 @@ public class Three {
             }
         }).toList().toBlocking().first();
         return list.toArray(new String[list.size()]);
+    }
+
+    public List<String> beginningWithNumbers(String[] arrString) {
+        return Observable.from(arrString).filter(new Func1<String, Boolean>() {
+            @Override
+            public Boolean call(String s) {
+                return isDigit(s.charAt(0));
+            }
+        }).toList().toBlocking().first();
     }
 }

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by YanMingDao on 22/11/2016.
@@ -32,5 +33,11 @@ public class ThreeTest {
         String[] actual = {"a", "b", "c"};
         String[] expected = {"A", "B", "C"};
         Assert.assertArrayEquals(expected, three.toUpperCase(actual));
+    }
+
+    @Test
+    public void beginningWithNumbersTest() throws Exception {
+        String[] arrString = new String[]{"a", "1abc", "abc1"};
+        Assert.assertEquals(Collections.singletonList("1abc"), three.beginningWithNumbers(arrString));
     }
 }
