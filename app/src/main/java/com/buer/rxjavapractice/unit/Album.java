@@ -30,4 +30,12 @@ public class Album {
     public Observable<Artist> getMusicians(){
         return Observable.from(listArtist.toArray(new Artist[listArtist.size()]));
     }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+                "listArtist=" + listArtist +
+                ", listTracks=" + listTracks +
+                '}';
+    }
 }

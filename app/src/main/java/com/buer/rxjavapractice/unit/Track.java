@@ -19,4 +19,12 @@ public class Track {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Track{" +
+                "length=" + length +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

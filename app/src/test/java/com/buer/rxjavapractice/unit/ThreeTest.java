@@ -141,4 +141,62 @@ public class ThreeTest {
                 })
                 .toList().toBlocking().first();
     }
+
+    /**
+     * 求和函数
+     */
+    @Test
+    public void sumTest() throws Exception {
+        int result = Observable.just(1,3,5,7,9)
+                .reduce((integer, integer2) -> integer + integer2)
+                .toBlocking().first();
+        Assert.assertEquals(25, result);
+    }
+
+    /**
+     * 返回字符串，其中包含艺术家的姓名和国籍
+     */
+    @Test
+    public void findArtistNameAndNationalityTest() throws Exception {
+        Album album = new Album();
+        album.addArtist(new Artist("The A", "China"));
+        album.addArtist(new Artist("The B", "London"));
+        album.addArtist(new Artist("C", "China"));
+//        album.getMusicians().forEach(new Action1<Artist>() {
+//            @Override
+//            public void call(Artist artist) {
+//
+//            }
+//        }))
+    }
+
+    /**
+     * 接受专辑列表，返回一个最多包含3首歌的专辑组成的列表
+     */
+    @Test
+    public void findAlbumsLessThanThree() throws Exception {
+        List<Album> albums = new ArrayList<>();
+        Album album = new Album();
+        album.addTrack(new Track("A1", 45));
+        album.addTrack(new Track("A2", 70));
+        album.addTrack(new Track("A3", 70));
+        album.addTrack(new Track("A4", 70));
+        albums.add(album);
+        album = new Album();
+        album.addTrack(new Track("B1", 80));
+        album.addTrack(new Track("B2", 100));
+        albums.add(album);
+
+        Observable.from(albums.toArray(new Album[albums.size()]))
+                .filter(album1 -> album1.getListTracks().size() <= 3)
+                .collect(ArrayList::new, new Action2<ArrayList<Album>, Album>() {
+                    @Override
+                    public void call(ArrayList<Album> alba, Album album) {
+                        System.out.println(album.toString());
+                        alba.add(album);
+                    }
+                })
+                .toBlocking().first();
+
+    }
 }
