@@ -12,6 +12,7 @@ import rx.functions.Func1;
 import rx.observables.MathObservable;
 
 import static java.util.Arrays.asList;
+import static rx.Observable.just;
 
 /**
  * Created by YanMingDao on 22/11/2016.
@@ -44,7 +45,7 @@ public class ThreeTest {
 
     @Test
     public void flatMapTest() throws Exception {
-        List<Integer> list = Observable.just(asList(1,2), asList(3,4))
+        List<Integer> list = just(asList(1,2), asList(3,4))
                 .flatMap(new Func1<List<Integer>, Observable<Integer>>() {
                     @Override
                     public Observable<Integer> call(List<Integer> integers) {
@@ -62,13 +63,18 @@ public class ThreeTest {
     public void maxTest() throws Exception {
         Artist china = new Artist("China");
         Artist london = new Artist("London");
-        List<Artist> artists = asList(china, london);
-        int result = MathObservable.max(Observable.just(china, london).map(new Func1<Artist, Integer>() {
+        int result = MathObservable.max(just(china, london).map(new Func1<Artist, Integer>() {
             @Override
             public Integer call(Artist artist) {
                 return artist.isFrom().length();
             }
         })).toBlocking().first();
         Assert.assertEquals(london.isFrom().length(), result);
+    }
+
+    @Test
+    public void reduceTest() throws Exception {
+        int result = Observable.just(1,3,5,7).reduce((integer, integer2) -> integer + integer2).toBlocking().first();
+        Assert.assertEquals(16, result);
     }
 }
