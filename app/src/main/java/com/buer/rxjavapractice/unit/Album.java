@@ -11,15 +11,23 @@ import rx.Observable;
  */
 
 public class Album {
-    private List<Artist> arrArtist = new ArrayList<>();
+    private List<Artist> listArtist = new ArrayList<>();
 
-    public Album() {
-        arrArtist.add(new Artist("The A", "China"));
-        arrArtist.add(new Artist("The B", "London"));
-        arrArtist.add(new Artist("C", "China"));
+    private List<Track> listTracks = new ArrayList<>();
+
+    public void addArtist(Artist artist){
+        listArtist.add(artist);
+    }
+
+    public void addTrack(Track track) {
+        listTracks.add(track);
+    }
+
+    public List<Track> getListTracks() {
+        return listTracks;
     }
 
     public Observable<Artist> getMusicians(){
-        return Observable.from(arrArtist.toArray(new Artist[arrArtist.size()]));
+        return Observable.from(listArtist.toArray(new Artist[listArtist.size()]));
     }
 }

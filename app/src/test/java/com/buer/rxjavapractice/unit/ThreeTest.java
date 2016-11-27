@@ -92,6 +92,9 @@ public class ThreeTest {
     @Test
     public void findArtistNationalityInOneAlbum() throws Exception {
         Album album = new Album();
+        album.addArtist(new Artist("The A", "China"));
+        album.addArtist(new Artist("The B", "London"));
+        album.addArtist(new Artist("C", "China"));
         List<String> nationality = album.getMusicians()
                 .filter(artist -> artist.getName().startsWith("The"))
                 .map(Artist::getNationality)
@@ -106,5 +109,36 @@ public class ThreeTest {
         }
     }
 
+    /**
+     * 找出长度大于1分钟的曲目
+     *
+     */
+    @Test
+    public void findLongTracksTest() throws Exception {
+        List<Album> albums = new ArrayList<>();
+        Album album = new Album();
+        album.addTrack(new Track("A", 45));
+        album.addTrack(new Track("B", 70));
+        albums.add(album);
+        album = new Album();
+        album.addTrack(new Track("C", 80));
+        album.addTrack(new Track("D", 100));
+        albums.add(album);
 
+        Observable.from(albums.toArray(new Album[albums.size()]))
+                .flatMap(new Func1<Album, Observable<Track>>() {
+                    @Override
+                    public Observable<Track> call(Album album) {
+                        List<Track> listTracks = album.getListTracks();
+                        return Observable.from(listTracks.toArray(new Track[listTracks.size()]));
+                    }
+                })
+                .filter(track -> track.getLength() > 60)
+                .map(track -> {
+                    String name = track.getName();
+                    System.out.println(name);
+                    return name;
+                })
+                .toList().toBlocking().first();
+    }
 }
