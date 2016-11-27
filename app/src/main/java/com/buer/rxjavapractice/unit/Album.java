@@ -11,7 +11,7 @@ import rx.Observable;
  */
 
 public class Album {
-    List<Artist> arrArtist = new ArrayList<>();
+    private List<Artist> arrArtist = new ArrayList<>();
 
     public Album() {
         arrArtist.add(new Artist("The A", "China"));

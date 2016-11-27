@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 import rx.Observable;
+import rx.functions.Action2;
 import rx.functions.Func1;
 import rx.observables.MathObservable;
 
@@ -89,7 +90,21 @@ public class ThreeTest {
      * 找出某张专辑所有的乐队国籍，艺术家列表既有个人，也有乐队，假定乐队是以"The"开头
      */
     @Test
-    public void name() throws Exception {
-
+    public void findArtistNationalityInOneAlbum() throws Exception {
+        Album album = new Album();
+        List<String> nationality = album.getMusicians()
+                .filter(artist -> artist.getName().startsWith("The"))
+                .map(Artist::getNationality)
+                .collect(ArrayList::new, new Action2<List<String>, String>() {
+                    @Override
+                    public void call(List<String> strings, String s) {
+                        strings.add(s);
+                    }
+                }).toBlocking().first();
+        for (String s : nationality) {
+            System.out.println("result:" + s);
+        }
     }
+
+
 }
