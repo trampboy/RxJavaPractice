@@ -1,6 +1,7 @@
 package com.buer.rxjavapractice.unit;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import rx.Observable;
 import rx.functions.Func1;
 import rx.observables.MathObservable;
 
+import static java.lang.Character.isDigit;
 import static java.util.Arrays.asList;
 import static rx.Observable.just;
 
@@ -19,14 +21,18 @@ import static rx.Observable.just;
  */
 
 public class ThreeTest {
-    Three three = new Three();
+    ArrayList<Artist> arrArtist = new ArrayList<>();
+    @Before
+    public void setUp() throws Exception {
+        arrArtist.add(new Artist("A", "China"));
+        arrArtist.add(new Artist("B", "London"));
+        arrArtist.add(new Artist("C", "China"));
+    }
+
     @Test
     public void getLondonArtistCountTest() throws Exception {
-        ArrayList<Artist> arrArtist = new ArrayList<>();
-        arrArtist.add(new Artist("China"));
-        arrArtist.add(new Artist("London"));
-        arrArtist.add(new Artist("China"));
-        int count = three.getLondonArtistCount(arrArtist);
+        int count = Observable.from(arrArtist.toArray(new Artist[arrArtist.size()]))
+                .filter(artist -> "London".equals(artist.getNationality())).count().toBlocking().first();
         Assert.assertEquals(1, count);
     }
 
@@ -34,13 +40,14 @@ public class ThreeTest {
     public void toUpperCaseTest() throws Exception {
         String[] actual = {"a", "b", "c"};
         String[] expected = {"A", "B", "C"};
-        Assert.assertArrayEquals(expected, three.toUpperCase(actual));
+        List<String> list = Observable.from(actual).map(String::toUpperCase).toList().toBlocking().first();
+        Assert.assertArrayEquals(expected, list.toArray(new String[list.size()]));
     }
 
     @Test
     public void beginningWithNumbersTest() throws Exception {
         String[] arrString = new String[]{"a", "1abc", "abc1"};
-        Assert.assertEquals(Collections.singletonList("1abc"), three.beginningWithNumbers(arrString));
+        Assert.assertEquals(Collections.singletonList("1abc"), Observable.from(arrString).filter(s -> isDigit(s.charAt(0))).toList().toBlocking().first());
     }
 
     @Test
@@ -61,20 +68,28 @@ public class ThreeTest {
     // TODO: 27/11/2016 找出长度最大的Artist
     @Test
     public void maxTest() throws Exception {
-        Artist china = new Artist("China");
-        Artist london = new Artist("London");
+        Artist china = new Artist("A", "China");
+        Artist london = new Artist("B", "London");
         int result = MathObservable.max(just(china, london).map(new Func1<Artist, Integer>() {
             @Override
             public Integer call(Artist artist) {
-                return artist.isFrom().length();
+                return artist.getNationality().length();
             }
         })).toBlocking().first();
-        Assert.assertEquals(london.isFrom().length(), result);
+        Assert.assertEquals(london.getNationality().length(), result);
     }
 
     @Test
     public void reduceTest() throws Exception {
         int result = Observable.just(1,3,5,7).reduce((integer, integer2) -> integer + integer2).toBlocking().first();
         Assert.assertEquals(16, result);
+    }
+
+    /**
+     * 找出某张专辑所有的乐队国籍，艺术家列表既有个人，也有乐队，假定乐队是以"The"开头
+     */
+    @Test
+    public void name() throws Exception {
+
     }
 }
