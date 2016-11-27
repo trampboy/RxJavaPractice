@@ -1,4 +1,4 @@
-package com.buer.rxjavapractice.unit;
+package com.buer.rxjavapractice.chapter3;
 
 import java.util.ArrayList;
 import java.util.List;

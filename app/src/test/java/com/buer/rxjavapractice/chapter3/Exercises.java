@@ -1,4 +1,4 @@
-package com.buer.rxjavapractice.unit;
+package com.buer.rxjavapractice.chapter3;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,7 +21,7 @@ import static rx.Observable.just;
  * Created by YanMingDao on 22/11/2016.
  */
 
-public class ThreeTest {
+public class Exercises {
     ArrayList<Artist> arrArtist = new ArrayList<>();
     @Before
     public void setUp() throws Exception {
@@ -148,7 +148,7 @@ public class ThreeTest {
     @Test
     public void sumTest() throws Exception {
         int result = Observable.just(1,3,5,7,9)
-                .reduce((integer, integer2) -> integer + integer2)
+                .reduce(0, (integer, integer2) -> integer + integer2)
                 .toBlocking().first();
         Assert.assertEquals(25, result);
     }
@@ -162,12 +162,15 @@ public class ThreeTest {
         album.addArtist(new Artist("The A", "China"));
         album.addArtist(new Artist("The B", "London"));
         album.addArtist(new Artist("C", "China"));
-//        album.getMusicians().forEach(new Action1<Artist>() {
-//            @Override
-//            public void call(Artist artist) {
-//
-//            }
-//        }))
+        List<String> arrString = album.getMusicians().flatMap(new Func1<Artist, Observable<String>>() {
+            @Override
+            public Observable<String> call(Artist artist) {
+                return Observable.just(artist.getName(), artist.getNationality());
+            }
+        }).toList().toBlocking().first();
+        for (String str : arrString) {
+            System.out.println(str);
+        }
     }
 
     /**
@@ -197,6 +200,36 @@ public class ThreeTest {
                     }
                 })
                 .toBlocking().first();
+
+    }
+
+
+    /**
+     * 计算一个字符串中小写字母的个数
+     */
+    @Test
+    public void countString() throws Exception {
+        int result = Observable.just("a", "V", "D", "w")
+                .filter(s -> Character.isLowerCase(s.charAt(0)))
+                .count()
+                .toBlocking()
+                .first();
+        Assert.assertEquals(2, result);
+    }
+
+    /**
+     * 使用reduce和Lambda表达式写出实现map操作的代码
+     */
+    @Test
+    public void useReduceReplaceWithMap() throws Exception {
+//        Observable.just("a", "V", "D", "w").map()
+    }
+
+    /**
+     * 使用reduce和Lambda表达式写出实现filter操作的代码
+     */
+    @Test
+    public void useReduceReplaceWithFilter() throws Exception {
 
     }
 }

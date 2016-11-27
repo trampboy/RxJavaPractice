@@ -1,4 +1,4 @@
-package com.buer.rxjavapractice.unit;
+package com.buer.rxjavapractice.chapter3;
 
 /**
  * Created by YanMingDao on 27/11/2016.
