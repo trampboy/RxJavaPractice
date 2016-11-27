@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rx.Observable;
-import rx.functions.Func1;
 
 import static java.lang.Character.isDigit;
 
@@ -15,31 +14,18 @@ import static java.lang.Character.isDigit;
 public class Three {
     public int getLondonArtistCount(final ArrayList<Artist> arrArtist) {
         return Observable.from(arrArtist.toArray(new Artist[arrArtist.size()]))
-                .filter(new Func1<Artist, Boolean>() {
-                    @Override
-                    public Boolean call(Artist artist) {
-                        System.out.println(artist.isFrom());
-                        return "London".equals(artist.isFrom());
-                    }
+                .filter(artist -> {
+                    System.out.println(artist.isFrom());
+                    return "London".equals(artist.isFrom());
                 }).count().toBlocking().first();
     }
 
     public String[] toUpperCase(String[] actual) {
-        List<String> list = Observable.from(actual).map(new Func1<String, String>() {
-            @Override
-            public String call(String s) {
-                return s.toUpperCase();
-            }
-        }).toList().toBlocking().first();
+        List<String> list = Observable.from(actual).map(String::toUpperCase).toList().toBlocking().first();
         return list.toArray(new String[list.size()]);
     }
 
     public List<String> beginningWithNumbers(String[] arrString) {
-        return Observable.from(arrString).filter(new Func1<String, Boolean>() {
-            @Override
-            public Boolean call(String s) {
-                return isDigit(s.charAt(0));
-            }
-        }).toList().toBlocking().first();
+        return Observable.from(arrString).filter(s -> isDigit(s.charAt(0))).toList().toBlocking().first();
     }
 }
