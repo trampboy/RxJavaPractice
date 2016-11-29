@@ -9,7 +9,7 @@ import rx.Subscriber;
  * Created by YanMingDao on 28/11/2016.
  */
 
-public class EmptOrNeverOrErrorTest {
+public class EmptyOrNeverOrErrorTest {
     @Test
     public void EmptyTest() throws Exception {
         Observable.empty().subscribe(new Subscriber<Object>() {
