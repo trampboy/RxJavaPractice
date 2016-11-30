@@ -1,4 +1,4 @@
-package com.buer.rxjavapractice.creatingObservables;
+package com.buer.rxjavapractice.transformingObservables;
 
 import org.junit.Test;
 
