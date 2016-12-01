@@ -9,9 +9,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.buer.rxjavapractice.MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <Button
+        android:id="@+id/btn_filtering_observables_click"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="click filtering observables"/>
 </RelativeLayout>
