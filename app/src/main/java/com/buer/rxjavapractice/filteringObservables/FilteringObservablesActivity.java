@@ -20,7 +20,11 @@ public class FilteringObservablesActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_to_debounce_activity)
     public void toDebounceActivity() {
-        Intent intent = new Intent(this, DebounceActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, DebounceActivity.class));
+    }
+
+    @OnClick(R.id.btn_to_distinct_activity)
+    public void toDistinctActivity() {
+        startActivity(new Intent(this, DistinctActivity.class));
     }
 }

@@ -18,5 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="go to DebounceActivity"/>
+        <Button
+            android:id="@+id/btn_to_distinct_activity"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="go to DistinctActivity"/>
     </LinearLayout>
 </ScrollView>

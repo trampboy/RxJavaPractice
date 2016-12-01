@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".filteringObservables.FilteringObservablesActivity" />
-        <activity android:name=".filteringObservables.DebounceActivity"></activity>
+        <activity android:name=".filteringObservables.DebounceActivity" />
+        <activity android:name=".filteringObservables.DistinctActivity"></activity>
     </application>
 
 </manifest>

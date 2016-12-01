@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_filtering_observables_click)
     public void clickFilteringObservables(){
-        Intent intent = new Intent(this, FilteringObservablesActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, FilteringObservablesActivity.class));
     }
-
 }
