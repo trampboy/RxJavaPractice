@@ -1,15 +1,29 @@
 package com.buer.rxjavapractice.filteringObservables;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
+import com.buer.rxjavapractice.BaseActivity;
 import com.buer.rxjavapractice.R;
 
-public class SkipLastActivity extends AppCompatActivity {
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import rx.Observable;
+
+public class SkipLastActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_skip_last);
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.btn_skip_last_test)
+    public void clickSkipLastTest() {
+        Observable.just(1,2,3,4,5).skipLast(2).subscribe(getSubscriber());
+    }
+
+    @Override
+    public int getContentLayoutId() {
+        return R.layout.activity_skip_last;
     }
 }
