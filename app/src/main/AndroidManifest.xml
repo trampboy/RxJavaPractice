@@ -27,7 +27,8 @@
         <activity android:name=".filteringObservables.SkipActivity" />
         <activity android:name=".filteringObservables.SkipLastActivity" />
         <activity android:name=".filteringObservables.TakeActivity" />
-        <activity android:name=".filteringObservables.TakeLastActivity"></activity>
+        <activity android:name=".filteringObservables.TakeLastActivity" />
+        <activity android:name=".BaseActivity"></activity>
     </application>
 
 </manifest>
