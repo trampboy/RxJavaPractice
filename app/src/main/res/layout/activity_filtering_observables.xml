@@ -16,12 +16,68 @@
         <Button
             android:id="@+id/btn_to_debounce_activity"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="go to DebounceActivity"/>
         <Button
             android:id="@+id/btn_to_distinct_activity"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="go to DistinctActivity"/>
+        <Button
+            android:id="@+id/btn_to_element_at_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to ElementAtActivity"/>
+        <Button
+            android:id="@+id/btn_to_filter_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to FilterActivity"/>
+        <Button
+            android:id="@+id/btn_to_first_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to FirstActivity"/>
+        <Button
+            android:id="@+id/btn_to_ignore_elements_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to IgnoreElementsActivity"/>
+
+        <Button
+            android:id="@+id/btn_to_last_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to LastActivity"/>
+
+        <Button
+            android:id="@+id/btn_to_sample_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to SampleActivity"/>
+
+        <Button
+            android:id="@+id/btn_to_skip_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to IgnoreSkipActivity"/>
+
+        <Button
+            android:id="@+id/btn_to_skip_last_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to SkipLastActivity"/>
+
+        <Button
+            android:id="@+id/btn_to_take_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to TakeActivity"/>
+
+        <Button
+            android:id="@+id/btn_to_take_last_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to TakeLastActivity"/>
     </LinearLayout>
 </ScrollView>
