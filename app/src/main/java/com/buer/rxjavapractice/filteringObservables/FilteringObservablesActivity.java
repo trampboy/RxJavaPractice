@@ -40,7 +40,7 @@ public class FilteringObservablesActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_to_first_activity)
     public void toFirstActivity () {
-        startActivity(new Intent(this, FilterActivity.class));
+        startActivity(new Intent(this, FirstActivity.class));
     }
 
     @OnClick(R.id.btn_to_ignore_elements_activity)

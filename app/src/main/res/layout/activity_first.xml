@@ -9,5 +9,30 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.buer.rxjavapractice.filteringObservables.FirstActivity">
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="false"
+        android:text="result:"/>
+    <Button
+        android:id="@+id/btn_first_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="click first test"
+        android:layout_below="@+id/tv_result"/>
+    <Button
+        android:id="@+id/btn_take_first_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="click take first test"
+        android:layout_below="@+id/btn_first_test"/>
 
+    <Button
+        android:id="@+id/btn_single_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="click single test"
+        android:layout_below="@+id/btn_take_first_test"/>
 </RelativeLayout>
