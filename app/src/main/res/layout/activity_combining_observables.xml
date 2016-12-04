@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_combining_observables"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.buer.rxjavapractice.combiningObservables.CombiningObservablesActivity">
+    <Button
+        android:id="@+id/btn_to_and_or_then_or_when_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to AndOrThenOrWhenActivity"/>
+    <Button
+        android:id="@+id/btn_to_combine_latest_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to CombiningObservablesActivity"
+        android:layout_below="@+id/btn_to_and_or_then_or_when_activity"/>
+    <Button
+        android:id="@+id/btn_to_join_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to JoinActivity"
+        android:layout_below="@+id/btn_to_combine_latest_activity"/>
+    <Button
+        android:id="@+id/btn_to_merge_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to MergeActivity"
+        android:layout_below="@+id/btn_to_join_activity"/>
+    <Button
+        android:id="@+id/btn_to_start_with_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to StartWithActivity"
+        android:layout_below="@+id/btn_to_merge_activity"/>
+    <Button
+        android:id="@+id/btn_to_switch_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to SwitchActivity"
+        android:layout_below="@+id/btn_to_start_with_activity"/>
+    <Button
+        android:id="@+id/btn_to_zip_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to ZipActivity"
+        android:layout_below="@+id/btn_to_switch_activity"/>
+</RelativeLayout>

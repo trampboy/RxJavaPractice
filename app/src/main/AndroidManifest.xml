@@ -28,7 +28,15 @@
         <activity android:name=".filteringObservables.SkipLastActivity" />
         <activity android:name=".filteringObservables.TakeActivity" />
         <activity android:name=".filteringObservables.TakeLastActivity" />
-        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".combiningObservables.AndOrThenOrWhenActivity" />
+        <activity android:name=".combiningObservables.CombineLatestActivity" />
+        <activity android:name=".combiningObservables.JoinActivity" />
+        <activity android:name=".combiningObservables.MergeActivity" />
+        <activity android:name=".combiningObservables.StartWithActivity" />
+        <activity android:name=".combiningObservables.SwitchActivity" />
+        <activity android:name=".combiningObservables.ZipActivity" />
+        <activity android:name=".combiningObservables.CombiningObservablesActivity"></activity>
     </application>
 
 </manifest>
