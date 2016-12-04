@@ -60,7 +60,7 @@
             android:id="@+id/btn_to_skip_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="go to IgnoreSkipActivity"/>
+            android:text="go to SkipActivity"/>
 
         <Button
             android:id="@+id/btn_to_skip_last_activity"
