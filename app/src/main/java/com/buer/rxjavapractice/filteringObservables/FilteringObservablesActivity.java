@@ -27,4 +27,9 @@ public class FilteringObservablesActivity extends AppCompatActivity {
     public void toDistinctActivity() {
         startActivity(new Intent(this, DistinctActivity.class));
     }
+
+    @OnClick(R.id.btn_to_element_at_activity)
+    public void toElementAtActivity() {
+        startActivity(new Intent(this, ElementAtActivity.class));
+    }
 }

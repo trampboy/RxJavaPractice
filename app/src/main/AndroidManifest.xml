@@ -17,7 +17,17 @@
         </activity>
         <activity android:name=".filteringObservables.FilteringObservablesActivity" />
         <activity android:name=".filteringObservables.DebounceActivity" />
-        <activity android:name=".filteringObservables.DistinctActivity"></activity>
+        <activity android:name=".filteringObservables.DistinctActivity" />
+        <activity android:name=".filteringObservables.ElementAtActivity" />
+        <activity android:name=".filteringObservables.FilterActivity" />
+        <activity android:name=".filteringObservables.FirstActivity" />
+        <activity android:name=".filteringObservables.IgnoreElementsActivity" />
+        <activity android:name=".filteringObservables.LastActivity" />
+        <activity android:name=".filteringObservables.SampleActivity" />
+        <activity android:name=".filteringObservables.SkipActivity" />
+        <activity android:name=".filteringObservables.SkipLastActivity" />
+        <activity android:name=".filteringObservables.TakeActivity" />
+        <activity android:name=".filteringObservables.TakeLastActivity"></activity>
     </application>
 
 </manifest>
