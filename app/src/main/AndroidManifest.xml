@@ -36,7 +36,10 @@
         <activity android:name=".combiningObservables.StartWithActivity" />
         <activity android:name=".combiningObservables.SwitchActivity" />
         <activity android:name=".combiningObservables.ZipActivity" />
-        <activity android:name=".combiningObservables.CombiningObservablesActivity"></activity>
+        <activity android:name=".combiningObservables.CombiningObservablesActivity" />
+        <activity android:name=".errorHandlingOperators.ErrorHandlingOperatorsActivity" />
+        <activity android:name=".errorHandlingOperators.CatchActivity" />
+        <activity android:name=".errorHandlingOperators.RetryActivity"></activity>
     </application>
 
 </manifest>
